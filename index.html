@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poppy &amp; Pearl — handmade earrings &amp; necklaces</title>
+<meta name="description" content="A playful, responsive handmade jewelry storefront template featuring product browsing, product details, a shopping cart, customer reviews, and a newsletter form.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo" onclick="goHome(event)">
+      <span class="dot"></span>
+      <div>
+        Poppy &amp; Pearl
+        <span class="logo-sub">handmade &amp; happy</span>
+      </div>
+    </a>
+    <nav class="navlinks">
+      <a class="navlink" data-nav="home" onclick="showPage('home')">Home</a>
+      <a class="navlink" data-nav="shop" onclick="showPage('shop')">Shop</a>
+    </nav>
+    <button class="cart-btn" onclick="showPage('cart')">
+      🛍️ Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+<!-- ============ HOME ============ -->
+<section class="page active" id="page-home" aria-label="Home">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">✨ new drop just landed</div>
+        <h1>Tiny charms,<br><span>big feelings.</span></h1>
+        <p class="hero-sub">Hand-shaped earrings and necklaces made in small, giggle-fueled batches. Bold colors, comfy weights, zero boring days.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-pink" onclick="showPage('shop')">Shop the sparkle →</button>
+          <button class="btn btn-outline" onclick="filterAndShow('Earrings')">Shop earrings</button>
+        </div>
+        <div class="hero-stats">
+          <div>4.9★<span>2,300+ reviews</span></div>
+          <div>10k+<span>happy ears &amp; necks</span></div>
+          <div>100%<span>handmade</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="blob float" style="--r:-6deg; width:220px; height:220px; top:0; right:20px;" viewBox="0 0 200 200"><path fill="#FFD23F" stroke="#2B1B3D" stroke-width="4" d="M50,-63C63,-52,70,-33,72,-14C74,5,71,26,59,41C47,56,26,65,4,64C-18,63,-38,53,-52,38C-66,23,-75,3,-72,-16C-70,-35,-56,-52,-39,-63C-21,-73,0,-77,50,-63Z" transform="translate(100 100)"/></svg>
+        <svg class="blob float" style="--r:4deg; width:180px; height:180px; bottom:10px; left:10px; animation-delay:.8s;" viewBox="0 0 200 200"><path fill="var(--turquoise)" stroke="#2B1B3D" stroke-width="4" d="M47,-58C60,-48,68,-30,70,-12C72,7,68,25,57,39C46,53,27,63,7,66C-14,68,-35,63,-49,50C-63,37,-71,15,-70,-6C-69,-27,-59,-46,-44,-57C-29,-68,-8,-70,47,-58Z" transform="translate(100 100)"/></svg>
+        <svg class="blob float" style="--r:8deg; width:120px; height:120px; top:120px; left:70px; animation-delay:1.6s;" viewBox="0 0 200 200"><path fill="var(--pink)" stroke="#2B1B3D" stroke-width="4" d="M45,-55C57,-46,63,-28,65,-10C67,8,64,25,54,38C44,51,27,60,8,64C-11,68,-32,66,-46,55C-60,44,-67,24,-67,4C-67,-16,-60,-36,-46,-48C-32,-60,-12,-64,45,-55Z" transform="translate(100 100)"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="squiggle-wrap">Pick your obsession<svg class="squiggle" viewBox="0 0 220 10" preserveAspectRatio="none"><path d="M0,6 Q10,0 20,6 T40,6 T60,6 T80,6 T100,6 T120,6 T140,6 T160,6 T180,6 T200,6 T220,6" fill="none" stroke="var(--yellow)" stroke-width="5"/></svg></h2>
+        </div>
+        <p class="section-sub">Two little categories, endless ways to feel like yourself.</p>
+      </div>
+      <div class="cats">
+        <div class="cat-card a" onclick="filterAndShow('Earrings')" role="button" tabindex="0">
+          <div>
+            <h3>Earrings</h3>
+            <p>Hoops, studs &amp; dangly friends</p>
+          </div>
+          <span class="go">Browse earrings →</span>
+        </div>
+        <div class="cat-card b" onclick="filterAndShow('Necklaces')" role="button" tabindex="0">
+          <div>
+            <h3>Necklaces</h3>
+            <p>Chains, charms &amp; chokers</p>
+          </div>
+          <span class="go">Browse necklaces →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="squiggle-wrap">Fan favorites<svg class="squiggle" viewBox="0 0 190 10" preserveAspectRatio="none"><path d="M0,6 Q10,0 20,6 T40,6 T60,6 T80,6 T100,6 T120,6 T140,6 T160,6 T180,6" fill="none" stroke="var(--pink)" stroke-width="5"/></svg></h2>
+        <button class="btn btn-outline btn-sm" onclick="showPage('shop')">See all →</button>
+      </div>
+      <div class="grid" id="featuredGrid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="squiggle-wrap">Loved by tiny-ear enthusiasts<svg class="squiggle" viewBox="0 0 320 10" preserveAspectRatio="none"><path d="M0,6 Q10,0 20,6 T40,6 T60,6 T80,6 T100,6 T120,6 T140,6 T160,6 T180,6 T200,6 T220,6 T240,6 T260,6 T280,6 T300,6 T320,6" fill="none" stroke="var(--turquoise)" stroke-width="5"/></svg></h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:var(--pink)">M</div>
+            <div><div class="review-name">Maya R.</div><div class="stars">★★★★★</div></div>
+          </div>
+          <p class="review-text">The Bubblegum Drops are basically weightless but look so bold. I get stopped at the grocery store, no joke.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:var(--turquoise)">J</div>
+            <div><div class="review-name">Jade O.</div><div class="stars">★★★★★</div></div>
+          </div>
+          <p class="review-text">Ordered the Rainbow Bead Necklace for my birthday and it's cuter in person. Packaging alone deserved a 5-star.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="avatar" style="background:var(--purple)">P</div>
+            <div><div class="review-name">Priya S.</div><div class="stars">★★★★★</div></div>
+          </div>
+          <p class="review-text">My Daisy Chain Hoops survived a toddler yanking them once and still look brand new. 10/10 would recommend.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="insta-head">
+        <h2>@poppyandpearl</h2>
+      </div>
+      <div class="insta-grid" id="instaGrid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="newsletter">
+        <div>
+          <h2>Get 10% off + first dibs on drops 🎉</h2>
+          <p>Join the sparkle list — new colorways, tiny discount codes, and the occasional cat photo (she runs the studio).</p>
+        </div>
+        <div>
+          <form class="nl-form" onsubmit="joinNewsletter(event)">
+            <input type="email" required placeholder="you@example.com" id="nlEmail">
+            <button class="btn btn-yellow" type="submit">Join!</button>
+          </form>
+          <div class="nl-msg" id="nlMsg" style="display:none;">Yay, you're on the list! Check your inbox 💌</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section class="page" id="page-shop" aria-label="Shop products">
+  <div class="wrap shop-head">
+    <h1 class="squiggle-wrap">Shop everything<svg class="squiggle" viewBox="0 0 300 10" preserveAspectRatio="none"><path d="M0,6 Q10,0 20,6 T40,6 T60,6 T80,6 T100,6 T120,6 T140,6 T160,6 T180,6 T200,6 T220,6 T240,6 T260,6 T280,6 T300,6" fill="none" stroke="var(--pink)" stroke-width="5"/></svg></h1>
+    <p class="section-sub" style="margin-top:12px;">Handmade in small batches — when it's gone, it's gone (until next batch).</p>
+  </div>
+  <div class="wrap">
+    <div class="shop-toolbar">
+      <div class="filters" id="filterPills">
+        <button class="pill active" data-filter="All" onclick="setFilter('All')">All</button>
+        <button class="pill" data-filter="Earrings" onclick="setFilter('Earrings')">Earrings</button>
+        <button class="pill" data-filter="Necklaces" onclick="setFilter('Necklaces')">Necklaces</button>
+        <button class="pill" data-filter="Rings" onclick="setFilter('Rings')">Rings</button>
+      </div>
+      <div class="sort">
+        <select id="sortSelect" onchange="renderShop()">
+          <option value="featured">Sort: Featured</option>
+          <option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option>
+        </select>
+      </div>
+    </div>
+    <p class="result-count" id="resultCount"></p>
+    <div class="grid" id="shopGrid"></div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT DETAIL ============ -->
+<section class="page" id="page-detail" aria-label="Product details">
+  <div class="wrap">
+    <a class="back-link" onclick="showPage('shop')">← Back to shop</a>
+    <div class="pd-grid" id="pdContent"></div>
+
+    <div class="pd-reviews">
+      <h2 class="squiggle-wrap" style="margin-bottom:22px;">What people are saying<svg class="squiggle" viewBox="0 0 320 10" preserveAspectRatio="none"><path d="M0,6 Q10,0 20,6 T40,6 T60,6 T80,6 T100,6 T120,6 T140,6 T160,6 T180,6 T200,6 T220,6 T240,6 T260,6 T280,6 T300,6 T320,6" fill="none" stroke="var(--yellow)" stroke-width="5"/></svg></h2>
+      <div class="reviews-grid" id="pdReviews"></div>
+    </div>
+
+    <div class="related-head">
+      <h2 class="squiggle-wrap" style="margin-bottom:22px;">You'll also love<svg class="squiggle" viewBox="0 0 240 10" preserveAspectRatio="none"><path d="M0,6 Q10,0 20,6 T40,6 T60,6 T80,6 T100,6 T120,6 T140,6 T160,6 T180,6 T200,6 T220,6 T240,6" fill="none" stroke="var(--turquoise)" stroke-width="5"/></svg></h2>
+    </div>
+    <div class="grid" id="relatedGrid" style="margin-bottom:60px;"></div>
+  </div>
+</section>
+
+<!-- ============ CART ============ -->
+<section class="page" id="page-cart" aria-label="Shopping cart">
+  <div class="wrap">
+    <h1 style="padding:44px 0 6px;" class="squiggle-wrap">Your cart<svg class="squiggle" viewBox="0 0 170 10" preserveAspectRatio="none"><path d="M0,6 Q10,0 20,6 T40,6 T60,6 T80,6 T100,6 T120,6 T140,6 T160,6" fill="none" stroke="var(--pink)" stroke-width="5"/></svg></h1>
+    <div id="cartContent"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px;"><span class="dot"></span><div>Poppy &amp; Pearl</div></div>
+        <p class="foot-about">Started at a kitchen table with a bead box and too much free time, Poppy &amp; Pearl is still just two hands (and one very opinionated studio cat) shaping every piece by hand. Thanks for being part of the sparkle. 💗</p>
+      </div>
+      <div>
+        <div class="foot-title">Shop</div>
+        <ul class="foot-links">
+          <li onclick="filterAndShow('All')" style="cursor:pointer;">All jewelry</li>
+          <li onclick="filterAndShow('Earrings')" style="cursor:pointer;">Earrings</li>
+          <li onclick="filterAndShow('Necklaces')" style="cursor:pointer;">Necklaces</li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-title">Help</div>
+        <ul class="foot-links">
+          <li>Shipping &amp; returns</li>
+          <li>Size guide</li>
+          <li>Contact us</li>
+          <li>FAQs</li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-title">Follow along</div>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="Pinterest">📌</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Poppy &amp; Pearl. Made with glitter and good intentions.</span>
+      <span><a href="privacy.html" target="_blank">Privacy</a> · <a href="terms.html" target="_blank">Terms</a></span>
+      <span>HTML Template by <a href="https://templatesjungle.com" target="_blank">TemplatesJungle</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✅ Added to cart!</div>
+
+<script src="js/store.js"></script>
+</body>
+</html>
